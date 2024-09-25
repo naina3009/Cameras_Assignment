@@ -1,0 +1,108 @@
+.table1 thead th {
+    border-bottom: 0px;
+    background: var(--secondary-light);
+    padding: 15px;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+  }
+  .table1 thead th:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  .table1 thead th:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  .table1 tbody td {
+    padding: 15px;
+    border-bottom-color: var(--border-color2);
+    font-size: 1.6rem;
+    color: var(--dark);
+    /* min-width: 150px; */
+  }
+  .table1 tbody tr:last-child td {
+    border-bottom-color: transparent;
+  }
+  
+  .footer-actions-buttons {
+    border-top: 1px solid var(--border-color2);
+    border-bottom: 1px solid var(--border-color2);
+    padding: 5px 15px;
+  }
+  
+  @media (min-width: 768px) {
+    .table1.outlined table {
+      border: 1px solid var(--border-color2);
+      border-radius: 4px;
+      overflow: hidden;
+      border-collapse: separate;
+    }
+  
+    .table1.outlined table thead tr th {
+      border-radius: 0px;
+    }
+  
+    /* .table1.outlined table tbody td {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    } */
+  
+    .table1.outlined table tbody tr:first-child td {
+      border-top: 1px solid var(--border-color2);
+    }
+  
+    .table1 tbody td.instance-id {
+      width: 160px;
+    }
+  }
+  
+  @media (min-width: 1600px) {
+    .table1 thead th {
+      font-size: 1.6rem;
+    }
+  }
+  
+  @media (max-width: 1600px) {
+    .table1 thead th {
+      padding: 8px 10px;
+    }
+    .table1 tbody td {
+      padding: 10px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .table1 thead {
+      display: none;
+    }
+    .table1 tbody td {
+      position: relative;
+      padding: 10px;
+      padding-left: 50%;
+      display: block;
+    }
+    .table1 tbody td::before {
+      content: attr(data-th);
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: 500;
+    }
+    .table1 tbody tr {
+      display: block;
+      border: 1px solid var(--border-color2);
+      border-radius: 5px;
+    }
+    .table1 tbody tr + tr {
+      margin-top: 10px;
+    }
+    .table1 tbody tr:last-child td {
+      border-bottom-color: var(--border-color2);
+    }
+    .table1 tbody tr td:last-child {
+      border-bottom-color: transparent;
+    }
+  }
+  
+  
