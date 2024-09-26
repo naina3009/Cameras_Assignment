@@ -1,60 +1,36 @@
-import React from 'react';
-import FormControl from '@mui/material/FormControl';
-import { Select } from '@mui/material';
-import { Controller } from 'react-hook-form';
+import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import { FC } from "react";
 
-export interface ISelectProps {
-    controlName: string;
-    labelName?: string;
-    placeholder?: string;
-    control: any;
-    defaultValue?: any;
-    register: any;
-    errors?: any;
-    rules?: any;
-    options: any[];
-    optionName: string;
-    optionValue: string | number;
-    classes?: any;
-    changeHandler?: any;
-    hideLabelName?: boolean;
+
+interface ISelectField {
+    label : string
+    options : any
+    onChange : (data : any)=>void
+    error ?: any
+    defaultValue ?: string
 }
 
-const SelectField = (props: ISelectProps) => {
-    return (
-               
-        <FormControl fullWidth>
-            <Controller
-                control={props.control}
-                name={props.controlName}
-                rules={props.rules}
-                defaultValue=""
-                render={({ field }) => (
-                    <Select {...field}
-                        className={`form-control nativeSelect ${props.errors[props.controlName] && 'invalid-parentBox'}`}
-                        onChange={(e) => {
-                            field.onChange(e);
-                            props.changeHandler && props.changeHandler(e);
-                        }}
-                    >
-                        {props.placeholder && (
-                            <option disabled value="">
-                                <em style={{ color: '#8F9BB3', fontSize: '14px' }}>{props.placeholder} </em>
-                            </option>
-                        )}
-
-                        {props.options.map((option) => (
-
-                            <option key={option[props.optionValue]} value={option[props.optionValue]}>
-                                {option[props.optionName]}
-                            </option>
-                        ))}
-                    </Select>
-                )}
-            />
-
-        </FormControl>
-    );
-};
-
-export default SelectField;
+const SelectField : FC<ISelectField> = (props)=>{
+    const {label,onChange,options,error,defaultValue } = props;
+    return(
+          <FormControl sx={{ ml: 1, width: 180, height: 25 }} size="small" error={error}>
+                <InputLabel id="demo-select-small">
+                   {label}
+                </InputLabel>
+                <Select
+                    labelId="demo-select-small"
+                    id="demo-select-small"
+                    label="Selected Product"
+                    onChange={onChange}
+                    defaultValue={defaultValue}
+                >
+                    {options.map((roleItem: any, index: any) => (
+                        <MenuItem key={roleItem.id} value={roleItem.value} >
+                            {roleItem.label}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+    )
+}
+export default SelectField

@@ -18,7 +18,6 @@
     border-bottom-color: var(--border-color2);
     font-size: 1.6rem;
     color: var(--dark);
-    /* min-width: 150px; */
   }
   .table1 tbody tr:last-child td {
     border-bottom-color: transparent;
@@ -41,11 +40,6 @@
     .table1.outlined table thead tr th {
       border-radius: 0px;
     }
-  
-    /* .table1.outlined table tbody td {
-      padding-top: 8px;
-      padding-bottom: 8px;
-    } */
   
     .table1.outlined table tbody tr:first-child td {
       border-top: 1px solid var(--border-color2);
@@ -105,4 +99,11 @@
     }
   }
   
-  
+  .table-head{
+    border: 1px solid grey;
+  }
+
+  .table1{
+    border-radius: 10px;
+  }
+ 
